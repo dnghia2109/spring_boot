@@ -40,49 +40,48 @@ translateCode("VN");
 
 // Câu 4:
 function subString(text) {
-    let newSubString = "";
-    for (let i = 0; i < 10; i++) {
-        newSubString += text[i] ;
-    }
-    return newSubString + "...";
+  let newSubString = "";
+  for (let i = 0; i < 10; i++) {
+    newSubString += text[i];
+  }
+  return newSubString + "...";
 }
 console.log(subString("ToiNayTroiKhongMua"));
 
 // Câu 5:
-function keoBuaBao(yourAction){
-    let action = ["keo","bua","bao"];
-    let turn = Math.floor(Math.random() *3);
-    // console.log(turn);
+function keoBuaBao(yourAction) {
+  let action = ["keo", "bua", "bao"];
+  let turn = Math.floor(Math.random() * 3);
+  // console.log(turn);
 
-    if(yourAction == "keo"){
-        if(action[turn] == "bua") {
-            return "YOU LOSE";
-        } else if (action[turn] == "bao") {
-            return "YOU WIN";
-        } else {
-            return "DRAW";
-        } 
+  if (yourAction == "keo") {
+    if (action[turn] == "bua") {
+      return "YOU LOSE";
+    } else if (action[turn] == "bao") {
+      return "YOU WIN";
+    } else {
+      return "DRAW";
     }
+  }
 
-    if(yourAction == "bua"){
-        if(action[turn] == "keo") {
-            return "YOU WIN";
-        } else if (action[turn] == "bao") {
-            return "YOU LOSE";
-        } else {
-            return "DRAW";
-        }
+  if (yourAction == "bua") {
+    if (action[turn] == "keo") {
+      return "YOU WIN";
+    } else if (action[turn] == "bao") {
+      return "YOU LOSE";
+    } else {
+      return "DRAW";
     }
-    
-    if(yourAction == "bao"){
-        if(action[turn] == "keo") {
-            return "YOU LOSE";
-        } else if (action[turn] == "bua") {
-            return "YOU WIN";
-        } else {
-            return "DRAW";
-        }
-    }
+  }
 
+  if (yourAction == "bao") {
+    if (action[turn] == "keo") {
+      return "YOU LOSE";
+    } else if (action[turn] == "bua") {
+      return "YOU WIN";
+    } else {
+      return "DRAW";
+    }
+  }
 }
 console.log(keoBuaBao("keo"));
