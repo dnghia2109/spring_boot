@@ -53,9 +53,6 @@ function keoBuaBao(yourAction){
     let action = ["keo","bua","bao"];
     let turn = Math.floor(Math.random() *3);
     // console.log(turn);
-    if(yourAction == action[turn]) {
-        return "DRAW";
-    }
 
     if(yourAction == "keo"){
         if(action[turn] == "bua") {
@@ -70,7 +67,7 @@ function keoBuaBao(yourAction){
     if(yourAction == "bua"){
         if(action[turn] == "keo") {
             return "YOU WIN";
-        } else if (action[turn] == "bua") {
+        } else if (action[turn] == "bao") {
             return "YOU LOSE";
         } else {
             return "DRAW";
