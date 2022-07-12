@@ -212,13 +212,13 @@ function getFemaleNameStartByJ(list) {
 console.log(getFemaleNameStartByJ(grades))
 
 //    14. Viết function lấy ra top 5 người có thứ hạng cao nhất trong lớp
-function getTop5(list, num) {
+function getTop5(list) {
     let key = Object.keys(list);
     let rs = sortByGradeDescending(list);
     let rs1 = [];
-    for (let i = 0; i < num; i++) {
+    for (let i = 0; i < 5; i++) {
         rs1.push(rs.shift(list[key[i]]))
     }
     return rs1;
 }
-console.log(getTop5(grades, 5))
+console.log(getTop5(grades))
