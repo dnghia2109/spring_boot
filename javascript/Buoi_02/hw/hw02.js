@@ -123,7 +123,20 @@ function minGradeFemale(list) {
     return minStudent;
 }
 console.log(minGradeFemale(grades))
+// function minGradeFemale(list) {
+//     let minGrade = Number.MAX_VALUE;
+//     let minStudent = list[0];
+//     for (let i = 0; i < list.length; i++) {
+//         let value = Object.values(list[i]);
+//         if (value[1] < minGrade && value[2] == "F") {
+//             minGrade = value[1];
+//             minStudent = list[i];
+//         }
+//     }
+//     return minStudent;
+// }
 
+// console.log(minGradeFemale(grades));
 
 //    8. Viết function thứ hạng cao nhất của cả lớp
 function maxGrade(list) {
