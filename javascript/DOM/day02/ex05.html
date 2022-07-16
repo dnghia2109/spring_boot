@@ -57,10 +57,10 @@
         function renderBox() {
             console.log(colors[Math.floor(Math.random() * colors.length)])
             for (let i = 0; i < 5; i++) {
-            const box = document.createElement("div")
-            box.classList.add("box")
-            box.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
-            boxes.appendChild(box)
+                const box = document.createElement("div")
+                box.classList.add("box")
+                box.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+                boxes.appendChild(box)
             }
         }
         renderBox()
