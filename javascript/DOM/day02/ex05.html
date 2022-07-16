@@ -41,6 +41,7 @@
         
         </div>
     </div>
+
     <script>
         let colors = [
         '#3498db',
@@ -51,13 +52,32 @@
         ]
 
         const boxes = document.querySelector(".boxes")
+        let total = document.querySelector(".points");
         
-        console.log()
-        for (let i = 0; i < 5; i++) {
+        function renderBox() {
+            console.log(colors[Math.floor(Math.random() * colors.length)])
+            for (let i = 0; i < 5; i++) {
             const box = document.createElement("div")
             box.classList.add("box")
-            box.style.color = colors[Math.floor(Math.random() * colors.length)]
+            box.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
             boxes.appendChild(box)
+            }
+        }
+        renderBox()
+        total.textContent = "5"
+        
+
+        let click = document.getElementById("btn");
+        click.onclick = function () {
+            renderBox();
+            total.textContent = Number(total.textContent) + 5;
+            let allBox = document.querySelectorAll(".box");
+            allBox.forEach((allBox) => {
+                allBox.onclick = function() {
+                boxes.removeChild(allBox);
+                    total.innerHTML = Number(total.textContent) - 1;
+                }
+            })
         }
 
     </script>
