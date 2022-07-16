@@ -74,7 +74,7 @@
             let allBox = document.querySelectorAll(".box");
             allBox.forEach((allBox) => {
                 allBox.onclick = function() {
-                boxes.removeChild(allBox);
+                    boxes.removeChild(allBox);
                     total.innerHTML = Number(total.textContent) - 1;
                 }
             })
