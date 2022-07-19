@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.List;
-import java.util.Optional;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -26,7 +27,7 @@ public class BookDao extends Dao<Book> {
     try {
       File file = ResourceUtils.getFile("classpath:static/" + csvFile);
       CsvMapper mapper = new CsvMapper(); // Dùng để ánh xạ cột trong CSV với từng trường trong POJO
-      CsvSchema schema = CsvSchema.emptySchema().withHeader().withColumnSeparator('|'); // Dòng đầu tiên sử dụng làm Header
+      CsvSchema schema = CsvSchema.emptySchema().withHeader(); // Dòng đầu tiên sử dụng làm Header
       ObjectReader oReader = mapper.readerFor(Book.class).with(schema); // Cấu hình bộ đọc CSV phù hợp với kiểu
       Reader reader = new FileReader(file);
       MappingIterator<Book> mi = oReader.readValues(reader); // Iterator đọc từng dòng trong file
@@ -63,6 +64,10 @@ public class BookDao extends Dao<Book> {
     book.setId(id);
     collections.add(book);
   }
+
+//  public List<Book> sortBookByTitle() {
+//    return collections.stream().sorted().collect(Collectors.toList());
+//  }
 
   @Override
   public void update(Book t) {

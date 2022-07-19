@@ -17,5 +17,7 @@ public class BookController {
   public String listAll(Model model) {
     model.addAttribute("books", bookDao.getAll());
     return "allbooks";
-  }  
+  }
+
+
 }
