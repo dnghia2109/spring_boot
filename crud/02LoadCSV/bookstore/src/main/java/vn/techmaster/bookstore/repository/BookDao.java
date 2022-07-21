@@ -16,6 +16,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import org.springframework.util.ResourceUtils;
 
 import vn.techmaster.bookstore.model.Book;
+
 public class BookDao extends Dao<Book> {
 
   public BookDao(String csvFile) {
@@ -36,7 +37,7 @@ public class BookDao extends Dao<Book> {
         this.add(book);
       }
     } catch (IOException e) {
-      System.out.println(e);   
+      System.out.println(e);
     }
   }
 
@@ -53,21 +54,30 @@ public class BookDao extends Dao<Book> {
 
   @Override
   public void add(Book book) {
-    //Cơ chế tự tăng
+    // Cơ chế tự tăng
     int id;
     if (collections.isEmpty()) {
       id = 1;
     } else {
       Book lastBook = collections.get(collections.size() - 1);
-      id = lastBook.getId() + 1;      
+      id = lastBook.getId() + 1;
     }
     book.setId(id);
     collections.add(book);
   }
 
-//  public List<Book> sortBookByTitle() {
-//    return collections.stream().sorted().collect(Collectors.toList());
-//  }
+  public List<Book> sortBookByTitle() {
+    Collections.sort(collections, new Comparator<Book>() {
+      @Override
+      public int compare(Book o1, Book o2) {
+        return o1.getTitle().compareTo(o2.getTitle());
+      }
+    });
+    return collections;
+  }
+
+  public BookDao() {
+  }
 
   @Override
   public void update(Book t) {
@@ -82,5 +92,5 @@ public class BookDao extends Dao<Book> {
   @Override
   public void delete(Book t) {
     // TODO Auto-generated method stub
-  }  
+  }
 }

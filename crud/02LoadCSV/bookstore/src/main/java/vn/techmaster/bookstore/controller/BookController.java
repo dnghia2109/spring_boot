@@ -15,7 +15,7 @@ public class BookController {
 
   @GetMapping
   public String listAll(Model model) {
-    model.addAttribute("books", bookDao.getAll());
+    model.addAttribute("books", bookDao.sortBookByTitle());
     return "allbooks";
   }
 
