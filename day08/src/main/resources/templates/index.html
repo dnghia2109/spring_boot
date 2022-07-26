@@ -28,7 +28,7 @@
                 <td>[[${em.department}]]</td>
                 <td>
                     <a class="btn btn-primary">Update</a>
-                    <a class="btn btn-warning">Delete</a>
+                    <a th:href="{@/{id}(id = ${em.id})}" class="btn btn-warning">Delete</a>
 
                 </td>
 
