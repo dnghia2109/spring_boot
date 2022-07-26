@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Book {
   @JsonIgnore
   int id;
-
   String title;
   String description;
 

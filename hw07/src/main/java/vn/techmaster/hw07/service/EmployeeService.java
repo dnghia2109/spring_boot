@@ -17,6 +17,10 @@ import java.util.*;
 public class EmployeeService implements IEmployee {
     private List<Employee> employeeList = new ArrayList<>();
 
+    public EmployeeService(String csvFile) {
+        this.readCSV(csvFile);
+    }
+
     @Override
     public void readCSV(String csvFile) {
         try {
