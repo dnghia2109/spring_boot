@@ -14,6 +14,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CarService implements ICar {
@@ -56,5 +58,47 @@ public class CarService implements ICar {
     @Override
     public List<Car> getAll() {
         return carList;
+    }
+
+    @Override
+    public void sortCarByModel(List<Car> list) {
+        Collections.sort(list, new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o1.getModel().compareTo(o2.getModel());
+            }
+        });
+    }
+
+    @Override
+    public void sortCarByBrand(List<Car> list) {
+        Collections.sort(list, new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o1.getBrand().compareTo(o2.getBrand());
+            }
+        });
+    }
+
+    @Override
+    public void updateCar(Car car) {
+
+    }
+
+    @Override
+    public Car findCarById(int id) {
+        for (Car c: carList) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteCarById(int id) {
+        if (findCarById(id) != null){
+            carList.remove(findCarById(id));
+        }
     }
 }

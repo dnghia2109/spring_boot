@@ -17,6 +17,6 @@ public interface IEmployee {
     Map<String,Integer> findTop5Cities();
     HashMap<String,List> groupEmployeeByCity();
     HashMap<String,Integer> groupJobByCount(List<Employee> list);
-    HashMap<String,String> findTopJobInCity();
+    HashMap<String, List> findTopJobInCity();
     List find5CitiesHaveMostSpecificJob(String job);
 }

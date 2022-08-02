@@ -109,12 +109,28 @@ public class EmployeeService implements IEmployee {
 
     @Override
     public HashMap<String, Integer> groupJobByCount(List<Employee> list) {
-        return null;
+        HashMap<String, Integer> jobList = new HashMap<>();
+        for(Employee e : list){
+            jobList.put(e.getJob(), jobList.getOrDefault(e.getJob(), 0) + 1);
+        }
+        return jobList;
     }
 
     @Override
-    public HashMap<String, String> findTopJobInCity() {
-        return null;
+    public HashMap<String, List> findTopJobInCity() {
+        HashMap<String, List> newMap = new HashMap<>();
+        for (Employee e : employeeList) {
+            if (!newMap.containsKey(e.getCity())) {
+                List<Employee> newList = new ArrayList<>();
+                newList.add(e);
+                newMap.put(e.getCity(), newList);
+            } else {
+                List<Employee> newList = newMap.get(e.getCity());
+                newList.add(e);
+                newMap.put(e.getCity(), newList);
+            }
+        }
+        return newMap;
     }
 
     @Override
