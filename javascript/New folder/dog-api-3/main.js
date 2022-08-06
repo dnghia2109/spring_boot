@@ -28,7 +28,7 @@ const renderBreedList = obj => {
     let keys = Object.keys(obj);
     // console.log(keys);
 
-    let html = "";
+    let html = "<option hidden>Chọn</option>";
     keys.forEach(key => {
         html += `<option value=${key}>${key}</option>`; // Tạo danh sách trong dropdown
     });
