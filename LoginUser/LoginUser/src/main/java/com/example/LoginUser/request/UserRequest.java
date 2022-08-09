@@ -1,5 +1,4 @@
-package com.example.day13.request;
-
+package com.example.LoginUser.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

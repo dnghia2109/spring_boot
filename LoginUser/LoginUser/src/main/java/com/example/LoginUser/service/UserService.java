@@ -1,10 +1,10 @@
-package com.example.day13.service;
+package com.example.LoginUser.service;
 
-import com.example.day13.dto.UserDto;
-import com.example.day13.exception.NotFoundException;
-import com.example.day13.exception.UnauthorizeException;
-import com.example.day13.model.User;
-import com.example.day13.request.UserRequest;
+import com.example.LoginUser.dto.UserDto;
+import com.example.LoginUser.exception.BadRequestException;
+import com.example.LoginUser.exception.NotFoundException;
+import com.example.LoginUser.model.User;
+import com.example.LoginUser.request.UserRequest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class UserService {
         if (checkUser.getPassword().equals(request.getPassword())) {
             userDto = modelMapper.map(checkUser, UserDto.class);
         } else {
-            throw new UnauthorizeException("Sai mật khẩu!");
+            throw new BadRequestException("username hoặc password chưa chính xác");
         }
         return userDto;
     }
