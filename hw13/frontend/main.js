@@ -32,6 +32,7 @@ const loginSuccess = (obj) => {
 
     html = titleMessage + avatar;
     loginSuccessEl.innerHTML = html;
+    
 }
 
 
