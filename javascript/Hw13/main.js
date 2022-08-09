@@ -11,7 +11,7 @@ btnloginEl.addEventListener("click", async () => {
             "password" : passwordInp.value
         });
         console.log(res);
-        if (res.data.username != null) {
+        if (res.data.username != null && res.data.password != null) {
             loginSuccess(res.data);
         } else {
             alert("Không được để trống Username");
