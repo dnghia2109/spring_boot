@@ -1,8 +1,0 @@
-package com.example.day13.exception;
-
-
-public class NotFoundException extends RuntimeException{
-    public NotFoundException(String message) {
-        super(message);
-    }
-}

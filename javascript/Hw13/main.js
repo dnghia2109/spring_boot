@@ -24,7 +24,7 @@ btnloginEl.addEventListener("click", async () => {
 
 const loginSuccess = (obj) => {
     loginFormEl.classList.add("invisible");
-    loginSuccessEl.classList.add("visible")
+    loginSuccessEl.classList.add("visible") 
     html = "";
     let titleMessage = `<p> Welcome ${obj.username} </p>`+
                        `<p> Email ${obj.email} </p>`;
@@ -33,5 +33,7 @@ const loginSuccess = (obj) => {
     html = titleMessage + avatar;
     loginSuccessEl.innerHTML = html;
 }
+
+
 
 
