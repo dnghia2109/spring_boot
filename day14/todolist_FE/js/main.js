@@ -157,7 +157,6 @@ btn_addEl.addEventListener("click", async () => {
     createTodo(todoTitle);
   }
 
-  createTodo(todoTitle);
   todo_inputEl.value = "";
 });
 
